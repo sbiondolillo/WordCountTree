@@ -8,11 +8,19 @@
 
 package classes;
 
+import java.util.HashMap;
+
 public class TextTreeBuilder {
 
 	private BinaryTree textTree = new BinaryTree();
 	
 	public BinaryTree getTextTree() {
 		return textTree;
+	}
+	
+	public TextTreeBuilder(HashMap<String,Integer> map) {
+		for (String key: map.keySet()) {
+			textTree.add(new TextNode(map.get(key), key));
+		}
 	}
 }
