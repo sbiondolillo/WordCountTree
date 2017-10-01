@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class TextTreeBuilder {
 
-	private BinaryTree textTree = new BinaryTree();
+	private TextBinaryTree btextTree = new TextBinaryTree();
 	
 	/*
 	 * Constructor
@@ -21,15 +21,15 @@ public class TextTreeBuilder {
 	 */
 	public TextTreeBuilder(HashMap<String,Integer> map) {
 		for (String key: map.keySet()) {
-			textTree.add(new TextNode(map.get(key), key));
+			btextTree.add(new TextNode(map.get(key), key));
 		}
 	}
 	
 	/*
 	 * Getter for instance variable
 	 */
-	public BinaryTree getTextTree() {
-		return textTree;
+	public TextBinaryTree getTextTree() {
+		return btextTree;
 	}
 	
 	
