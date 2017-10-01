@@ -8,10 +8,22 @@
 
 package classes;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 public class TestWordCountTree {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws IOException {
+		TextFileProcessor tfp = new TextFileProcessor();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please specify a file path:");
+		String fileName = input.nextLine();
+		System.out.println("Processing...");
+		Path filePath = Paths.get(fileName);
+		tfp.processFile(filePath);
+		System.out.println(tfp.getWordList());
 
 	}
 
