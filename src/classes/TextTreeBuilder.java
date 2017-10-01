@@ -10,4 +10,9 @@ package classes;
 
 public class TextTreeBuilder {
 
+	private BinaryTree textTree = new BinaryTree();
+	
+	public BinaryTree getTextTree() {
+		return textTree;
+	}
 }
