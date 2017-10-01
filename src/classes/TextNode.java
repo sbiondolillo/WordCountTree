@@ -16,5 +16,21 @@ public class TextNode extends Node {
 		super(value);
 		this.text = text;
 	}
+	
+	public String getText() {
+		return text;
+	}
+	
+	/*
+	 * Provide a readable format for printing Nodes
+	 */
+	@Override
+	public String toString() {
+		String output = "";
+		output += (this.getLeftChild() == null) ? "X-": ((TextNode) this.getLeftChild()).getText() + "-";
+		output += text + "-";
+		output += (this.getRightChild() == null) ? "X\n": ((TextNode) this.getRightChild()).getText() + "\n";
+		return output;
+	}
 
 }
