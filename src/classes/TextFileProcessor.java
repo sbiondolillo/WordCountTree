@@ -22,6 +22,9 @@ public class TextFileProcessor {
 	public ArrayList<String> getWordList() {
 		return wordList;
 	}
+	public HashMap<String,Integer> getWordCounts() {
+		return wordCounts;
+	}
 	
 	/*
 	 * Reads a text file and creates a list of the individual words
