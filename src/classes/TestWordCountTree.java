@@ -26,6 +26,8 @@ public class TestWordCountTree {
 		System.out.println(tfp.getWordList());
 		tfp.countWords();
 		System.out.println(tfp.getWordCounts());
+		TextTreeBuilder ttb = new TextTreeBuilder(tfp.getWordCounts());
+		System.out.println(ttb.getTextTree());
 
 	}
 
