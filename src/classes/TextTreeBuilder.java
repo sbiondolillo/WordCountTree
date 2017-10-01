@@ -14,13 +14,23 @@ public class TextTreeBuilder {
 
 	private BinaryTree textTree = new BinaryTree();
 	
-	public BinaryTree getTextTree() {
-		return textTree;
-	}
-	
+	/*
+	 * Constructor
+	 * @param map - any valid HashMap mapping Strings to Integers
+	 * builds a BinaryTree of TextNodes base on the map passed in
+	 */
 	public TextTreeBuilder(HashMap<String,Integer> map) {
 		for (String key: map.keySet()) {
 			textTree.add(new TextNode(map.get(key), key));
 		}
 	}
+	
+	/*
+	 * Getter for instance variable
+	 */
+	public BinaryTree getTextTree() {
+		return textTree;
+	}
+	
+	
 }

@@ -12,17 +12,25 @@ public class TextNode extends Node {
 	
 	private String text;
 	
+	/*
+	 * Constructor
+	 * @value - any valid int
+	 * @text - any valid String
+	 */
 	public TextNode(int value, String text) {
 		super(value);
 		this.text = text;
 	}
 	
+	/*
+	 * Getter for instance variable
+	 */
 	public String getText() {
 		return text;
 	}
 	
 	/*
-	 * Provide a readable format for printing Nodes
+	 * Provide a readable format for printing TextNodes
 	 */
 	@Override
 	public String toString() {

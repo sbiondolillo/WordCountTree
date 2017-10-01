@@ -19,6 +19,9 @@ public class TextFileProcessor {
 	private ArrayList<String> wordList = new ArrayList<String>();
 	private HashMap<String,Integer> wordCounts = new HashMap<String,Integer>();
 	
+	/*
+	 * Getters for instance variables
+	 */
 	public ArrayList<String> getWordList() {
 		return wordList;
 	}
@@ -35,6 +38,7 @@ public class TextFileProcessor {
 		try (Scanner input = new Scanner(sourceFile)){
 			while (input.hasNextLine()) {
 				String temp = input.nextLine();
+				// remove unwanted characters, helps group duplicates
 				temp = temp.replaceAll("[^a-zA-Z0-9&]", "").toLowerCase();
 				wordList.add(temp);
 			}
