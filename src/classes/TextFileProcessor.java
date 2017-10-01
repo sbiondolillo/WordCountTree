@@ -8,6 +8,26 @@
 
 package classes;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TextFileProcessor {
+	
+	private ArrayList<String> wordList;
+	
+	public void processFile(Path sourceFile) throws IOException {
+		try {
+			Scanner input = new Scanner(sourceFile);
+			while (input.hasNextLine()) {
+				wordList.add(input.nextLine());
+			}
+			input.close();
+		}
+		catch (IOException e) {
+			System.out.println("Unable to access that file.");
+		}	
+	}
 
 }
