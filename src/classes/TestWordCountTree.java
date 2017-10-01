@@ -24,6 +24,8 @@ public class TestWordCountTree {
 		Path filePath = Paths.get(fileName);
 		tfp.processFile(filePath);
 		System.out.println(tfp.getWordList());
+		tfp.countWords();
+		System.out.println(tfp.getWordCounts());
 
 	}
 

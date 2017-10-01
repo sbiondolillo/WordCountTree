@@ -35,7 +35,7 @@ public class TextFileProcessor {
 		try (Scanner input = new Scanner(sourceFile)){
 			while (input.hasNextLine()) {
 				String temp = input.nextLine();
-				temp = temp.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+				temp = temp.replaceAll("[^a-zA-Z0-9&]", "").toLowerCase();
 				wordList.add(temp);
 			}
 			input.close();
