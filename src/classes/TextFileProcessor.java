@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class TextFileProcessor {
 	
-	private ArrayList<String> wordList;
+	private ArrayList<String> wordList = new ArrayList<String>();
 	
 	public ArrayList<String> getWordList() {
 		return wordList;
@@ -27,8 +27,7 @@ public class TextFileProcessor {
 	 * requires one word per line in source file
 	 */
 	public void processFile(Path sourceFile) throws IOException {
-		try {
-			Scanner input = new Scanner(sourceFile);
+		try (Scanner input = new Scanner(sourceFile)){
 			while (input.hasNextLine()) {
 				String temp = input.nextLine();
 				temp = temp.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
