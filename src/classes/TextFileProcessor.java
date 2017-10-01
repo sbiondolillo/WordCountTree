@@ -11,11 +11,13 @@ package classes;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class TextFileProcessor {
 	
 	private ArrayList<String> wordList = new ArrayList<String>();
+	private HashMap<String,Integer> wordCounts = new HashMap<String,Integer>();
 	
 	public ArrayList<String> getWordList() {
 		return wordList;
@@ -38,6 +40,16 @@ public class TextFileProcessor {
 		catch (IOException e) {
 			System.out.println("Unable to access that file.");
 		}	
+	}
+	
+	/*
+	 * Iterates over wordlist, adding each word as a key in a HashMap
+	 * if the word is already a key in the HashMap, increment the value
+	 */
+	public void countWords() {
+		for (String s: wordList) {
+			wordCounts.merge(s, 1, Integer::sum);
+		}
 	}
 
 }
