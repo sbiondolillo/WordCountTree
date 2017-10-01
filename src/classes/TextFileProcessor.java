@@ -17,11 +17,22 @@ public class TextFileProcessor {
 	
 	private ArrayList<String> wordList;
 	
+	public ArrayList<String> getWordList() {
+		return wordList;
+	}
+	
+	/*
+	 * Reads a text file and creates a list of the individual words
+	 * @param sourceFile - a valid file Path object
+	 * requires one word per line in source file
+	 */
 	public void processFile(Path sourceFile) throws IOException {
 		try {
 			Scanner input = new Scanner(sourceFile);
 			while (input.hasNextLine()) {
-				wordList.add(input.nextLine());
+				String temp = input.nextLine();
+				temp = temp.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+				wordList.add(temp);
 			}
 			input.close();
 		}
