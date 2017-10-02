@@ -35,18 +35,13 @@ public class TextTreeBuilder {
 	 * Builds up the bTextTree starting with the most common word
 	 */
 	public void buildTree() {
-		// identify a node with the maximum value
-		TextNode first = this.findMaxValue(map);
-		// add it so we have it as the root
-		bTextTree.add(first);
-		// iterate through the map and create nodes for each key
-		for (String key: map.keySet()) {
-			if (key == first.getWords().get(0)) {
-				continue;
-			}
-			ArrayList<String> temp = new ArrayList<String>();
-			temp.add(key);
-			bTextTree.add(new TextNode(map.get(key), temp));
+		while (map.size() > 0) {
+			// identify a node with the maximum value
+			TextNode first = this.findMaxValue(map);
+			// add it so we have it as the root
+			bTextTree.add(first);
+			// remove it from map so we don't have to check it again
+			map.remove(first.getWords().get(0));
 		}
 	}
 	/*
