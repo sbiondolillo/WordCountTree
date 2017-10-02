@@ -46,9 +46,6 @@ public class TextNode extends Node {
 	public String toString() {
 		String output = "";
 		output += (this.getLeftChild() == null) ? "X-": ((TextNode) this.getLeftChild()).getWords() + "-";
-		/*for ( String word: words ) {
-			output += word + "-";
-		}*/
 		output += words + "-";
 		output += (this.getRightChild() == null) ? "X\n": ((TextNode) this.getRightChild()).getWords() + "\n";
 		return output;

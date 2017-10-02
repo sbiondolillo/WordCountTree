@@ -38,7 +38,7 @@ public class TextTreeBuilder {
 		while (map.size() > 0) {
 			// identify a node with the maximum value
 			TextNode first = this.findMaxValue(map);
-			// add it so we have it as the root
+			// add it to the tree
 			bTextTree.add(first);
 			// remove it from map so we don't have to check it again
 			map.remove(first.getWords().get(0));
@@ -59,7 +59,7 @@ public class TextTreeBuilder {
 				maxString = key;
 			}
 		}
-		// use the value to build a TextNode
+		// use the key-value pair to build a TextNode
 		ArrayList<String> maxArray = new ArrayList<String>();
 		maxArray.add(maxString);
 		return new TextNode(maxValue,maxArray);
