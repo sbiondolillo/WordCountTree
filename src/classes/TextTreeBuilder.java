@@ -8,29 +8,66 @@
 
 package classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TextTreeBuilder {
 
-	private TextBinaryTree btextTree = new TextBinaryTree();
+	private TextBinaryTree bTextTree = new TextBinaryTree();
+	private HashMap<String,Integer> map = null;
 	
 	/*
 	 * Constructor
 	 * @param map - any valid HashMap mapping Strings to Integers
-	 * builds a BinaryTree of TextNodes base on the map passed in
 	 */
 	public TextTreeBuilder(HashMap<String,Integer> map) {
-		for (String key: map.keySet()) {
-			btextTree.add(new TextNode(map.get(key), key));
-		}
+		this.map = map;
 	}
 	
 	/*
 	 * Getter for instance variable
 	 */
 	public TextBinaryTree getTextTree() {
-		return btextTree;
+		return bTextTree;
 	}
 	
+	/*
+	 * Builds up the bTextTree starting with the most common word
+	 */
+	public void buildTree() {
+		// identify a node with the maximum value
+		TextNode first = this.findMaxValue(map);
+		// add it so we have it as the root
+		bTextTree.add(first);
+		// iterate through the map and create nodes for each key
+		for (String key: map.keySet()) {
+			if (key == first.getWords().get(0)) {
+				continue;
+			}
+			ArrayList<String> temp = new ArrayList<String>();
+			temp.add(key);
+			bTextTree.add(new TextNode(map.get(key), temp));
+		}
+	}
+	/*
+	 * Identifies the maximum value in a HashMap and creates a 
+	 * TextNode base on that key,value pair
+	 * @param map - the HashMap<String,Integer> to be searched
+	 */
+	private TextNode findMaxValue(HashMap<String,Integer> map) {
+		// find the maximum value
+		int maxValue = 0;
+		String maxString = "";
+		for (String key: map.keySet()) {
+			if (map.get(key) > maxValue) {
+				maxValue = map.get(key);
+				maxString = key;
+			}
+		}
+		// use the value to build a TextNode
+		ArrayList<String> maxArray = new ArrayList<String>();
+		maxArray.add(maxString);
+		return new TextNode(maxValue,maxArray);
+	}
 	
 }

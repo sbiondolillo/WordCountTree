@@ -36,7 +36,9 @@ public class TestWordCountTree {
 		
 		// put the words in a tree and display the result
 		TextTreeBuilder ttb = new TextTreeBuilder(tfp.getWordCounts());
-		System.out.println(ttb.getTextTree());
+		ttb.buildTree();
+		System.out.println(ttb.getTextTree());		
+		input.close();
 
 	}
 
