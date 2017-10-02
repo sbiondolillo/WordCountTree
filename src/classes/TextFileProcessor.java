@@ -2,7 +2,8 @@
  * TextFileProcessor Class
  * Samuel Biondolillo
  * CIS210M - Data Structures and Elementary Algorithms
- * Goal - build a class to turn a text file into a list of strings
+ * Goal - build a class to turn a text file into a list of strings, then
+ *        turn the list of strings into a HashMap so we can count collisions
  * Version	0.0.1	10/1/17
  */
 

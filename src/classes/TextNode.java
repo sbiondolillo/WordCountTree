@@ -8,25 +8,35 @@
 
 package classes;
 
+import java.util.ArrayList;
+
 public class TextNode extends Node {
 	
-	private String text;
+	private ArrayList<String> words = new ArrayList<String>();
 	
 	/*
 	 * Constructor
 	 * @value - any valid int
-	 * @text - any valid String
+	 * @text - any valid ArrayList<String>
 	 */
-	public TextNode(int value, String text) {
+	public TextNode(int value, ArrayList<String> words) {
 		super(value);
-		this.text = text;
+		this.words = words;
 	}
 	
 	/*
 	 * Getter for instance variable
 	 */
-	public String getText() {
-		return text;
+	public ArrayList<String> getWords() {
+		return words;
+	}
+
+	/*
+	 * Add a word to the node's words array
+	 * @param newWord - any valid String
+	 */
+	public void append(String newWord) {
+		words.add(newWord);
 	}
 	
 	/*
@@ -35,9 +45,9 @@ public class TextNode extends Node {
 	@Override
 	public String toString() {
 		String output = "";
-		output += (this.getLeftChild() == null) ? "X-": ((TextNode) this.getLeftChild()).getText() + "-";
-		output += text + "-";
-		output += (this.getRightChild() == null) ? "X\n": ((TextNode) this.getRightChild()).getText() + "\n";
+		output += (this.getLeftChild() == null) ? "X-": ((TextNode) this.getLeftChild()).getWords() + "-";
+		output += words + "-";
+		output += (this.getRightChild() == null) ? "X\n": ((TextNode) this.getRightChild()).getWords() + "\n";
 		return output;
 	}
 
