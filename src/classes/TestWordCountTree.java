@@ -28,15 +28,21 @@ public class TestWordCountTree {
 		
 		// process the file and display the result
 		tfp.processFile(filePath);
+		System.out.println();
+		System.out.println("The words you provided...");
 		System.out.println(tfp.getWordList());
 		
 		// count the words and display the result
 		tfp.countWords();
+		System.out.println();
+		System.out.println("Their frequency...");
 		System.out.println(tfp.getWordCounts());
 		
 		// put the words in a tree and display the result
 		TextTreeBuilder ttb = new TextTreeBuilder(tfp.getWordCounts());
 		ttb.buildTree();
+		System.out.println();
+		System.out.println("And your binary tree...");
 		System.out.println(ttb.getTextTree());		
 		// input.close(); // uncomment this line if running this program stand-alone
 
